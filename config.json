@@ -1,0 +1,43 @@
+{
+  "seed": 42,
+
+  "data": {
+    "root": "data/QM9",
+    "target_index": 4,
+    "node_feature_indices": [0, 1, 2, 3, 4, 5, 10],
+    "continuous_node_feature_indices": [5, 10],
+    "bond_feature_indices": [0, 1, 2],
+    "train_size": 100000,
+    "val_size": 10000,
+    "test_size": 10000
+  },
+
+  "model": {
+    "node_dim": 96,
+    "edge_dim": 64,
+    "global_dim": 96,
+    "block_hidden_dim": 128,
+    "num_blocks": 3,
+
+    "rbf": {
+      "min_centre": 0.8,
+      "max_centre": 2.0,
+      "num_centres": 8,
+      "sigma_multiplier": 1
+    },
+
+    "prediction_head_hidden_dim": 128
+  },
+
+  "training": {
+    "batch_size": 256,
+    "epochs": 100,
+    "learning_rate": 0.001,
+    "weight_decay": 0.00001,
+    "early_stopping_patience": 15
+  },
+
+  "output": {
+    "checkpoint_path": "checkpoints/best_model.pt"
+  }
+}
