@@ -10,15 +10,31 @@ $$
 \vec{e}_k' = \phi^e\left( \vec{e}_k, \vec{v}_{rk}, \vec{v}_{sk}, \vec{u}\right),
 $$
 
-and then node attributes $\vec{v}$:   
-$\vec{v}_i' = \phi^v\left(\bar{e}_{i}',\vec{v}_i,\vec{u}\right)$  
+and then node attributes $\vec{v}$:
+
+$$
+\vec{v}_i' = \phi^v\left(\bar{e}_{i}',\vec{v}_i,\vec{u}\right)
+$$
+
 and finally graph level attributes $\vec{u}$:  
-$\vec{u}'=\phi^{u}(\bar{e}',\bar{v}',\vec{u}),$  
+
+$$
+\vec{u}'=\phi^{u}(\bar{e}',\bar{v}',\vec{u}),
+$$
+
 where we use aggregate functions $\rho$ over the sets of nodes $V$ and edges $E$:  
-$\bar{e}_i'=\rho^{e\to v}(E_i'),$  
-$\bar{e}'=\rho^{e\to u}(E'),$  
+
+$$
+\bar{e}_i'=\rho^{e\to v}(E_i'),
+
+\bar{e}'=\rho^{e\to u}(E'),
+$$
+
 and  
-$\bar{v}'=\rho^{v\to u}(V').$  
+$$
+\bar{v}'=\rho^{v\to u}(V').
+$$
+
 The architecture used here is similar to MEGNet, which goes beyond SchNet's use of message-passing layers (effectively - though they don't explicitly use graphs but treat them as convolutional filters) at the node level, going up to edge and graph level. Many similar models have been used as MLIPs, for which the energy is explicitly decomposed as a sum of local contributions. However, HOMO-LUMO gap is an intensive, graph-level property. Intensive pooling (e.g. mean) could be used after message passing only on node (and optionally edge) attributes, but here I wanted to see how well aggregating up to the graph level works. MEGNet's architecture is rather complicated, using e.g. set2set layers, but this model will take a more minimal approach to a full GNN.  
 For the update functions, I will use two-layer MLPs with SiLU activation after the first. This is simpler than the approaches taken e.g. in SchNet and CGCNN but should be reasonable.  
 This architecture ensures permutation, translation, and rotation invariance as required for this property, and can distinguish between two molecules with the same composition but marginally different bond lengths. However, three-body interactions (e.g. bond angles) aren't properly dealt with. They are indirectly dealt with by message passing, but there could be isomers with different bond angles that this model would incorrectly predict as having identical HOMO-LUMO gaps. However, this approach should still perform well - this will only subtly change the gaps. Solutions exist e.g. ALIGNN uses a second graph where the bonds are the nodes and then third-order interactions are the edges.
