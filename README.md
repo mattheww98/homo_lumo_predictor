@@ -32,8 +32,6 @@ $$
 \bar{e}'=\rho^{e\to u}(E'),
 $$
 
-and
-
 $$
 \bar{v}'=\rho^{v\to u}(V').
 $$
