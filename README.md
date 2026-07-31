@@ -5,7 +5,7 @@ The local environment representation is built using features 1-6+11 of the provi
 ## Message-passing layers
 Node, edge, and graph-level attributes are updated using N message passing layers.
 The Battaglia GNN layer equations, updates edge attributes $\vec{e}$ to those in the next layer $\vec{e}'$ using update functions $\phi$:
-$$\vec{e}_k' = \phi^e\left( \vec{e}_k, \vec{v}_{rk}, \vec{v}_{sk}, \vec{u}\right),$$
+$\vec{e}_k' = \phi^e\left( \vec{e}_k, \vec{v}_{rk}, \vec{v}_{sk}, \vec{u}\right),$
 and then node attributes $\vec{v}$:   
 $\vec{v}_i' = \phi^v\left(\bar{e}_{i}',\vec{v}_i,\vec{u}\right)$  
 and finally graph level attributes $\vec{u}$:  
