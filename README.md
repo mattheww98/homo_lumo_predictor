@@ -4,7 +4,7 @@ The model is a message-passing graph neural network.
 The local environment representation is built using features 1-6+11 of the provided atomic embeddings. These go through a dense layer to a higher dimensionality learned embedding. Edge representations start from the first three dimensions of the provided edge embeddings - disregarding the aromatic dimension. These also go through a dense layer to a higher dimensionality learned embedding, which is concatenated with an RBF expansion of the edge length. Graph level attributes will be initialised as all 1s then updated through the message-passing layers. These will be the default settings, changeable via the config.json.
 ## Message-passing layers
 Node, edge, and graph-level attributes are updated using N message passing layers.
-The Battaglia GNN layer equations, updates edge attributes $\vec{e}$ to those in the next layer $\vec{e}'$ using update functions $\phi$:  
+The Battaglia GNN layer equations, updates edge attributes $\vec{e}$ to those in the next layer $\vec{e}'$ using update functions $\phi$:
 $$\vec{e}_k' = \phi^e\left( \vec{e}_k, \vec{v}_{rk}, \vec{v}_{sk}, \vec{u}\right),$$
 and then node attributes $\vec{v}$:   
 $\vec{v}_i' = \phi^v\left(\bar{e}_{i}',\vec{v}_i,\vec{u}\right)$  
