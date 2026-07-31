@@ -26,11 +26,10 @@ where we use aggregate functions $\rho$ over the sets of nodes $V$ and edges $E$
 
 $$
 \bar{e}_i'=\rho^{e\to v}(E_i'),
-
 \bar{e}'=\rho^{e\to u}(E'),
 $$
 
-and  
+and
 $$
 \bar{v}'=\rho^{v\to u}(V').
 $$
