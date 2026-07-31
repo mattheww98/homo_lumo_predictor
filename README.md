@@ -11,7 +11,7 @@ $\vec{v}_i' = \phi^v\left(\bar{e}_{i}',\vec{v}_i,\vec{u}\right)$
 and finally graph level attributes $\vec{u}$:  
 $\vec{u}'=\phi^{u}(\bar{e}',\bar{v}',\vec{u}),$  
 where we use aggregate functions $\rho$ over the sets of nodes $V$ and edges $E$:  
-$\bar{e}_i'=\rho^{e\to v}(E_{i}'),$  
+$\bar{e}_i'=\rho^{e\to v}(E_i'),$  
 $\bar{e}'=\rho^{e\to u}(E'),$  
 and  
 $\bar{v}'=\rho^{v\to u}(V').$  
