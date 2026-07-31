@@ -25,7 +25,8 @@ $$
 where we use aggregate functions $\rho$ over the sets of nodes $V$ and edges $E$:  
 
 $$
-\bar{e}_i'=\rho^{e\to v}(E_i'),\n
+\bar{e}_i'=\rho^{e\to v}(E_i'),
+
 \bar{e}'=\rho^{e\to u}(E'),
 $$
 
